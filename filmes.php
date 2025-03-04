@@ -14,6 +14,8 @@ $filmes = $result->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sugestões de Filmes</title>
     <link rel="stylesheet" href="modal.css">
+    <link rel="shortcut icon" href="assets/bolhas.png" type="image/x-icon">
+    
 </head>
 <body>
     <header>
@@ -22,7 +24,7 @@ $filmes = $result->fetch_all(MYSQLI_ASSOC);
                 <img src="https://img.icons8.com/?size=100&id=101311&format=png&color=000000" alt="" id="hamburgui">
             </div>
             <nav class="navbar" id="navBar">
-                <a href="index.php">Inicio</a>
+                <a href="index.html">Inicio</a>
                 <a href="contador.html">Contador</a>
                 <a href="caixinha.php">Caixinha</a>
                 <a href="filmes.php">Filmes e Series</a>

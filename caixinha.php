@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 include('db.php'); // Inclua seu arquivo de configuração do banco de dados
 
 // Variáveis para mensagens de erro
@@ -145,6 +144,7 @@ if ($result->num_rows > 0) {
 
     </style>
     <link rel="stylesheet" href="modal.css">
+    <link rel="shortcut icon" href="assets/bolhas.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -153,7 +153,7 @@ if ($result->num_rows > 0) {
                 <img src="https://img.icons8.com/?size=100&id=101311&format=png&color=000000" alt="" id="hamburgui">
             </div>
             <nav class="navbar" id="navBar">
-                <a href="index.php">Inicio</a>
+                <a href="index.html">Inicio</a>
                 <a href="contador.html">Contador</a>
                 <a href="caixinha.php">Caixinha</a>
                 <a href="filmes.php">Filmes e Series</a>
