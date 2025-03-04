@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'Gabriela';
+  }
+
+  body{
+    background-image: url(assets/euegabbback.jpg);
+    background-attachment: cover;
+    background-size: cover;
+  }
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin-top: -60px;
+    text-align: center;
+}
+
+h1{
+    color: goldenrod;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+
+input#valor{
+    text-align: center;
+    width: 80%;
+}
+
+option{
+    text-align: start;
+    width: 50%;
+}
+
+img#hamburgui{
+    user-select: none;
+}
+
+section{
+    width: 100%;
+    height: 60px;
+    background-color: gold;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 15px 0px;
+  }
+
+  #hamburgui{
+    width: 45px;
+    cursor: pointer;
+    box-shadow: 0px 1px 4px 0px;
+    border-radius: 10px;
+    background-color: goldenrod;
+    user-select: none;
+    margin-left: 20px;
+  }
+  #hamburgui:active{
+    
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+      transform: translateY(3px); /* Move o botão para baixo */
+      user-select: none;
+  }
+  
+  
+  .navbar {
+    display: none; /* Inicialmente invisível */
+    background: gold;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(-20px); /* Começa levemente acima */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
+    box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+    gap: 20px;
+    text-align: center;
+    z-index: 1000;
+    
+  }
+
+  .nomeFilme{
+    padding: 10px 20px;
+    width: 100%;
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+  }
+
+  .nomeFilme::placeholder{
+    text-align: center;
+  }
+
+  .descFilme{
+    width: 100%;
+    height: 200px;
+    resize: none;
+    padding: 10px 20px;
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .descFilme::placeholder{
+    text-align: center;
+  }
+  
+  .navbar.ativo {
+    display: flex;
+    justify-content: space-around;
+    opacity: 1; /* Torna o menu visível */
+    transform: translateY(0); /* Move para a posição normal */
+  }
+
+  .linhas{
+    border: 2px solid goldenrod;
+    padding: 20px;
+    border-radius: 25px;
+  }
+  
+  a{
+    color: white;
+    text-shadow: 0px 2px 2px gray;
+    outline: none;
+    text-decoration: none;
+    user-select: none;
+  }
+  a:active {
+    transform: translateY(-2px);
+    user-select: none;
+  }
+  .menus{
+    display: flex;
+    align-items: center;
+  
+  }
+    .overlay {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+        z-index: 9998; /* Fica atrás do modal */
+    }
+    /* Estilo do Modal de Valores */
+    .values-modal {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        border: 2px solid goldenrod;
+        z-index: 9999;
+        max-height: 80%; /* Limita a altura para não ficar grande demais */
+        overflow-y: auto; /* Permite rolagem caso o conteúdo ultrapasse a altura */
+        box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+        color: gray;
+    }
+    .values-modal h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: goldenrod;
+    }
+
+    .values-modal h3 {
+        font-size: 1.2em;
+        margin-top: 20px;
+        color: goldenrod;
+    }
+
+    .total{
+        color: goldenrod;
+    }
+
+    .values-modal ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .values-modal li {
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    .closeModal {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .closaModal:hover {
+        background-color: goldenrod;
+    }
+    /* Botão de Fechar o Modal */
+    #closeValuesModal {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    
+    #closeValuesModal:hover {
+        background-color: goldenrod;
+    }
+    
+    /* Botão para visualizar os valores */
+    #viewValuesBtn {
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    #viewValueBtn:active {
+        background-color: goldenrod;
+    }
+
+    .salvar {
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    .mainContainer {
+        width: 40%;
+        border: 2px solid goldenrod;
+        border-radius: 25px;
+        box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        background-color: white;
+    }
+
+    #valor{
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+    }
+
+    .inputFilmes{
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+        text-align: center;
+        width: 80%;
+    }
+
+    #usuario{
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+    }
+
+@media(max-width: 600px){
+    .logout{
+      display: none;
+    }
+    .mainheader{
+      display: none;
+    }
+    .menus{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  
+    #hamburgui{
+      width: 45px;
+      cursor: pointer;
+      box-shadow: 0px 1px 4px 0px;
+      border-radius: 10px;
+      background-color: goldenrod;
+      user-select: none;
+    }
+    #hamburgui:active{
+      
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+        transform: translateY(3px); /* Move o botão para baixo */
+        user-select: none;
+    }
+
+    .descFilme{
+        width: 100%;
+        height: 200px;
+        resize: none;
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+      }
+    .navbar {
+      display: none; /* Inicialmente invisível */
+      background: gold;
+      padding: 10px;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      opacity: 0; /* Inicialmente invisível */
+      transform: translateY(-20px); /* Começa levemente acima */
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
+      box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+      gap: 20px;
+      text-align: center;
+      
+    }
+    
+    .navbar.ativo {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      opacity: 1; /* Torna o menu visível */
+      transform: translateY(0); /* Move para a posição normal */
+    }
+    a{
+      color: white;
+      text-shadow: 0px 2px 2px gray;
+      outline: none;
+      text-decoration: none;
+      user-select: none;
+    }
+    a:active {
+      transform: translateY(-2px);
+      user-select: none;
+    }
+  
+    #contador{
+      font-weight: bold;
+      color: goldenrod;
+      text-align: center;
+      margin-top: 40px;
+    }
+    #convertido{
+      font-weight: bold;
+      color: goldenrod;
+      text-align: center;
+  
+    }
+  
+    .mainContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid goldenrod;
+      border-radius: 25px;
+      padding: 20px;
+      width: 90%;
+      box-shadow: 0px 0px 15px 0px;
+      background-color: white;
+    }
+  
+    .imgContador{
+      width: 250px;
+      border-radius: 25px;
+      box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+      border: 1px solid goldenrod;
+      margin-top: 20px;
+    }
+    .overlay {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+        z-index: 9998; /* Fica atrás do modal */
+    }
+    /* Estilo do Modal de Valores */
+    .values-modal {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        border: 2px solid goldenrod;
+        z-index: 9999;
+        max-height: 80%; /* Limita a altura para não ficar grande demais */
+        overflow-y: auto; /* Permite rolagem caso o conteúdo ultrapasse a altura */
+        box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+        color: gray;
+    }
+    .values-modal h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: goldenrod;
+    }
+    
+    .values-modal h3 {
+        font-size: 1.2em;
+        margin-top: 20px;
+        color: goldenrod;
+    }
+
+    .total{
+        color: goldenrod;
+    }
+    
+    .values-modal ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .values-modal li {
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+    
+    /* Botão de Fechar o Modal */
+    #closeValuesModal {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    
+    #closeValuesModal:hover {
+        background-color: goldenrod;
+    }
+    
+    /* Botão para visualizar os valores */
+    #viewValuesBtn {
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    #viewValueBtn:active {
+        background-color: goldenrod;
+    }
+
+    .salvar {
+        padding: 10px 20px;
+        background-color: gold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    .mainContainer {
+        width: 80%;
+        border: 2px solid goldenrod;
+        border-radius: 25px;
+        box-shadow: 0px 20px 15px 0px rgba(0, 0, 0, 0.4);
+        padding: 20px;
+    }
+
+    #valor{
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+    }
+
+    #usuario{
+        padding: 10px 20px;
+        border: 2px solid goldenrod;
+        border-radius: 5px;
+    }
+
+  }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Planos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <section class="menus">
+            <div class="hamburguer">
+                <img src="https://img.icons8.com/?size=100&id=101311&format=png&color=000000" alt="" id="hamburgui">
+            </div>
+            <nav class="navbar" id="navBar">
+                <a href="index.html">Inicio</a>
+                <a href="contador.html">Contador</a>
+                <a href="caixinha.php">Caixinha</a>
+                <a href="filmes.php">Filmes e Series</a>
+                
+            </nav>
+            <div class="logout"></div>
+        </section>
+    </header>
+    <main>
+        <div class="main">
+            <h1>Contador de Dias</h1>
+            <div>
+                <img src="assets/euegabb4.jpg" alt="" class="imgContador">
+            </div>
+            <div class="contador">
+                <p id="contador">
+                <p id="convertido"></p>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        function updateContador() {
+            const startDate = new Date('2024-01-14T19:00:00');
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('contador').innerText =
+                `Fazem ${days} Dias, ${hours} Horas, ${minutes} Minutos e ${seconds} Segundos desde o primeiro pôr do sol.`;
+            
+            const anos = Math.floor(days / 365);
+            const meses = Math.floor((days % 365) / 30);
+            
+            document.getElementById('convertido').innerText =
+                `O que equivale a aproximadamente ${anos} Ano(s) e ${meses} Mês(es).`;
+        }
+        
+        setInterval(updateContador, 1000)
+    </script>
+</body>
+</html>
