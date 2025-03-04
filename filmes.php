@@ -22,7 +22,7 @@ $filmes = $result->fetch_all(MYSQLI_ASSOC);
                 <img src="https://img.icons8.com/?size=100&id=101311&format=png&color=000000" alt="" id="hamburgui">
             </div>
             <nav class="navbar" id="navBar">
-                <a href="index.html">Inicio</a>
+                <a href="index.php">Inicio</a>
                 <a href="contador.html">Contador</a>
                 <a href="caixinha.php">Caixinha</a>
                 <a href="filmes.php">Filmes e Series</a>
