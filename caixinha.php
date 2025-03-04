@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 include('db.php'); // Inclua seu arquivo de configuração do banco de dados
 
 // Variáveis para mensagens de erro
